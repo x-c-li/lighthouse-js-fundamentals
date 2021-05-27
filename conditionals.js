@@ -41,6 +41,7 @@ console.log("Now you're ready to go outside!");
 */
 
 //LOGICAL OPERATORS
+/*
 const isCitizen = true;
 const age = 26;
 
@@ -60,3 +61,6 @@ const raining = true
 if (!raining) {
   console.log("Leave your umbrella at home!");
 }
+
+*/
+
