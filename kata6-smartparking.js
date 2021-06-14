@@ -20,8 +20,119 @@ Our function must return an array with the coordinates of the spot as an [X, Y] 
 
 const whereCanIPark = function (spots, vehicle) {
   // Code here!
+    
+  //const key = Object.keys(spots); // x-values
+  let x = 0;
+  let y = 0;
+  let final = [];
+
+  for (let j = 0; j < spots.length; j++) {
+    for (let i = 0; i < spots[j].length; i++) {    
+      if (vehicle === "regular" && spots[j][i] === "R") {
+        x = i;
+        y = j;
+        final.push(x,y);
+        return final;
+      } else if (vehicle === "small" ) {
+        if (spots[j][i] === "R" || spots[j][i] === "S") {
+          x = i;
+          y = j;
+          final.push(x,y);
+          return final;
+        } else {
+          return false;
+        }
+      } else if (vehicle === "motorcycle" && (spots[j][i] === "R" || spots[j][i] === "S" || spots[j][i] === "M")) {
+        x = i;
+        y = j;
+        final.push(x,y);
+        return final;
+        } 
+      }
+  }
+
+  if (final === []) {
+    return false;
+  }
+  
 };
 
+/*
+
+
+if (spots[j][i] === "R" || spots[j][i] === "S")) {
+        x = i;
+        y = j;
+        final.push(x,y);
+        return final;
+        } else if () {
+          
+        }
+
+for (let j = 0; j < fullWord.length; j++) {
+    switch (fullWord[j]) {
+      case "a":
+        vowels.push(fullWord[j]);
+        break;
+      case "e":
+        vowels.push(fullWord[j]);
+        break;
+      case "i":
+        vowels.push(fullWord[j]);
+        break;
+      case "o": 
+        vowels.push(fullWord[j]);
+        break;
+      case "u": 
+        vowels.push(fullWord[j]);
+        break;
+    }
+  }
+
+
+WE'RE ROOTING FOR YOU
+const judgeVegetable = function (vegetables, metric) {
+  
+  var largestVal = 0;
+  var largestValSubmitter = "";
+  
+  for (const veg of vegetables) {
+
+    var currVal = veg[metric];
+    var currSubmitter = veg.submitter;
+
+    if (currVal >= largestVal) {
+      largestVal = currVal;
+      largestValSubmitter = currSubmitter;
+    }
+
+  }
+  return largestValSubmitter;
+};
+
+if (vehicle[0] === "r") {
+        if (spots[j][i] === "R") {
+          x = i;
+          y = j;
+          final.push(x, y);
+          break;
+        }
+      } else if (vehicle[0] === "s") {
+        if (spots[j][i] === "R" || spots[j][i] === "S") {
+          x = i;
+          y = j;
+          final.push(x, y);
+          break;
+        }
+      } else if (vehicle[0] === "m") {
+        if (spots[j][i] === "R" || spots[j][i] === "S" || spots[j][i] === "M") {
+          x = i;
+          y = j;
+          final.push(x, y);
+          break;
+        }
+      }
+*/
 
 //TEST CASES
 console.log(whereCanIPark(
