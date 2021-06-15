@@ -17,9 +17,9 @@ Our function should be able to handle all of these cases.
 const makeCase = function(input, cas) {
   // Put your solution here
 
-  output = ""
+  let output = ""
 
-  function camel(){
+  const camel = function(input, output) {
     for (let i = 0; i < input.length; i++) {
       if (input[i] === " " && input[i+1] !== " ") {
         output += input[i+1].toUpperCase();
@@ -31,7 +31,7 @@ const makeCase = function(input, cas) {
     return output;
   } 
 
-  function pascal() {
+  const pascal =function(input, output) {
     input = input.replace(input[0], input[0].toUpperCase());
     for (let p = 0; p < input.length; p++) {
       if (input[p] === " " && input[p+1] !== " ") {
@@ -44,7 +44,7 @@ const makeCase = function(input, cas) {
     return output;
   }
 
-  function snake() {
+  const snake =function(input, output) {
     for (let s = 0; s <input.length; s++) {
       if (input[s] === " ") {
         output += "_";
@@ -55,7 +55,7 @@ const makeCase = function(input, cas) {
     return output;
   }
 
-  function kebab() {
+  const kebab =function(input, output) {
     for (let s = 0; s <input.length; s++) {
       if (input[s] === " ") {
         output += "-";
@@ -66,7 +66,7 @@ const makeCase = function(input, cas) {
     return output;
   }
 
-  function title() {
+  const title = function(input, output) {
     input = input.replace(input[0], input[0].toUpperCase());
       
     for (let t = 0; t < input.length; t++) {
@@ -82,7 +82,7 @@ const makeCase = function(input, cas) {
 
   }
 
-  function vowel() {
+  const vowel = function(input, output) {
     for (let v = 0; v < input.length; v++) {
       if (input[v] === "a" || input[v] === "e" || input[v] === "i" || input[v] === "o" || input[v] === "u") {
         input = input.replace(input[v], input[v].toUpperCase());
@@ -92,7 +92,7 @@ const makeCase = function(input, cas) {
     return output;
   }
   
-  function consonant() {
+  const consonant = function(input, output) {
     for (let v = 0; v < input.length; v++) {
       if (input[v] !== "a" && input[v] !== "e" && input[v] !== "i" && input[v] !== "o" && input[v] !== "u") {
         input = input.replace(input[v], input[v].toUpperCase());
@@ -102,12 +102,12 @@ const makeCase = function(input, cas) {
     return output;
   }
 
-  function upper() {
+  const upper = function(input, output) {
     output = input.toUpperCase();
     return output;
   }
 
-  function lower() {
+  const lower = function(input, output) {
     output = input.toLowerCase();
     return output;
   }
@@ -116,37 +116,58 @@ const makeCase = function(input, cas) {
   
   let cas2 = [];
   
+  //turning all the "cases" into arrays 
   if (typeof cas === "string") {
     cas2.push(cas);
+    //console.log("test")
   } else if (cas.length > 1) {
     for (let u = 0; u < cas.length; u++) {
+      //console.log("test2")
       cas2.push(cas[u]);
     }
   } 
-  
-  //console.log(cas);
-  console.log(cas2);
-  
+
+
+  //console.log(cas2[0]);
+
+  for (let h = 0; h < cas2.length; h++) {
+    for (let x = 0; x < font.length; x++) { 
+      if (h === 0) {
+        console.log("first");
+        if (cas2[h] === font[x].name) {
+          console.log("first-2");
+          output = font[x](input, output);
+        } 
+      } else if (h > 0) {
+        if (cas2[h] === font[x].name) {
+          console.log("second");
+          let endvar = output;
+          console.log(endvar);
+          output = font[x](endvar, output);
+          console.log(output);
+        }
+      }
+    }
+    return output;
+  }
+
+
   /*
-  for (let h = 0; h < font.length; h++) {
-    for (let x = 0; x < cas2.length; x++) {
-      if (cas2[x] === font[h]) {
-        font[h]();
-      }
+  for (let h = 0; h < cas2.length; h++) {
+    for (let x = 0; x < font.length; x++) {
+      if (cas2[h] === font[x].name) {
+        output = font[x](input, output);
+      } 
     }
-  }*/
-  
-    for(i = 0; i < font.length; i++){
-      if(cas2 === font[i].name){
-      font[i]();
-      }
-    }
+    return output;
+  }
+  */
 
 }
 
 
 //TEST CASES 
-console.log(makeCase("this is a string", "camel")); //1
+//console.log(makeCase("this is a string", "camel")); //1
 //console.log(makeCase("this is a string", "pascal")); //2
 //console.log(makeCase("this is a string", "snake")); //3
 //console.log(makeCase("this is a string", "kebab")); //4

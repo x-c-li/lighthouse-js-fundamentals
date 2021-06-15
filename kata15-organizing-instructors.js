@@ -16,7 +16,6 @@ const organizeInstructors = function(instructors) {
   for (const instructor of instructors) {
     //console.log(final);
     if (instructor.course in final) {
-      //final[instructor.course] += instructor.name;
       final[instructor.course].push(instructor.name);
     } else {
       final[instructor.course] = [];
