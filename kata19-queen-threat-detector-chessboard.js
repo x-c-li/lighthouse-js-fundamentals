@@ -53,15 +53,39 @@ let generatedBoard = function(array1, array2) {
 }
 
 
+let diagonalLeftRight = []
+
 
 for (let tq = 0; tq < twoQueens.length; tq++) {
   //console.log(twoQueens[tq]);
   for (t = 0; t < twoQueens[tq].length; t++) {
-    let diagonalLeftRight = []
-    diagonalLeftRight.push((twoQueens[tq][t] + 1), (twoQueens[tq][t + 1] + 1));
-    console.log(diagonalLeftRight);
+    
+    for (let x = 0; x < twoQueens[tq][t].length; x++) {
+    }
+    
   }
 }
+
+
+/*
+let test1 = [2,3]
+
+for (let x = 0; x < 8; x++) {
+  
+  let xc = test1[0] += 1; 
+  let yc = test1[1] += 0;
+  
+  if (xc < 8 && yc < 8) {
+    diagonalLeftRight.push([xc, yc]);
+  }
+  
+  //return diagonalLeftRight;
+  
+}
+*/
+
+
+console.log(diagonalLeftRight);
 
 //PART 1: TEST CASES
 //console.log(generatedBoard(whiteQueen, blackQueen));
